@@ -1,5 +1,5 @@
 { 
-  pkgs ? import <nixpkgs> {},
+  pkgs,
   theme ? "SpicetifyDefault",
   colorScheme ? "",
   thirdParyThemes ? {},
@@ -40,7 +40,7 @@ let
   spicetifyPkg = pkgs.callPackage ./spicetify.nix {};
   spicetify = "SPICETIFY_CONFIG=. ${spicetifyPkg}/spicetify";
 
-  themes = import ./themes-src.nix;
+  themes = (import ./themes-src.nix) pkgs;
 
   # Dribblish is a theme which needs a couple extra settings
   isDribblish = theme == "Dribbblish";
