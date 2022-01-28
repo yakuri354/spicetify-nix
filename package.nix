@@ -37,7 +37,7 @@ let
   makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
 
   # Setup spicetify
-  spicetify = "SPICETIFY_CONFIG=. ${pkgs.spicetify-cli}/bin/spicetify";
+  spicetify = "SPICETIFY_CONFIG=. ${pkgs.spicetify-cli}/bin/spicetify-cli";
 
   themes = (import ./themes-src.nix) pkgs;
 
